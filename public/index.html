@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Notes : Node + Express + Forms</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+    <style>
+        body {
+            margin-bottom: 4em;
+            background-color: #fcfcfc;
+        }
+
+        h2 {
+            margin-bottom: .8em;
+        }
+
+        .box {
+            padding: 2em;
+            margin-top: 2em;
+            background-color: #fff;
+        }
+
+        .shadow {
+            box-shadow: 0 .5rem .7rem rgba(0, 0, 0, .08) !important;
+        }
+
+        input[type='checkbox'] {
+            margin-left: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container ">
+
+        <!-- Form /data-one -->
+
+        <div class="box border shadow">
+            <h2>Post <code>multipart/form-data</code> to <code>/data-one</code></h2>
+            <form method="post" enctype="multipart/form-data" action="/data-one">
+                <div class="form-group row">
+                    <label for="value" class="col-sm-4 col-lg-3 col-form-label text-right">name="a_value"</label>
+                    <div class="col-sm-8 col-lg-9 ">
+                        <input type="text" name="a_value" id="value" class="form-control" value="abc">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="file" class="col-sm-4 col-lg-3 col-form-label text-right">name="a_file"</label>
+                    <div class="col-sm-8 col-lg-9">
+                        <input type="file" name="a_file" id="file" class="form-control-file" accept=".json" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4 col-lg-3"></div>
+                    <div class="col-sm-8 col-lg-9">
+                        <button type="submit" class="btn btn-primary">Send</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <!-- Form /data-two -->
+
+        <div class="box border shadow">
+            <h2>Post <code>multipart/form-data</code> to <code>/data-two</code></h2>
+            <form method="post" enctype="multipart/form-data" action="/data-two">
+                <div class="form-group row">
+                    <label for="checkbox"
+                        class="col-sm-4 col-lg-3 form-check-label text-right">name="a_checkbox"</label>
+                    <div class="col-sm-8 col-lg-9">
+                        <input type="checkbox" name="a_checkbox" id="checkbox" value="ok" class="form-check-input">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-4 col-lg-3 form-check-label text-right">name="a_radio"</label>
+                    <div class="col-sm-8 col-lg-9">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="a_radio" id="radio-abc" value="abc"
+                                checked>
+                            <label class="form-check-label" for="radio-abc">abc</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="a_radio" id="radio-def" value="def">
+                            <label class="form-check-label" for="radio-def">def</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="thing1" class="col-sm-4 col-lg-3 col-form-label text-right">name="a_thing" #1</label>
+                    <div class="col-sm-8 col-lg-9">
+                        <input type="text" name="a_thing" id="thing1" class="form-control" value="123">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="thing2" class="col-sm-4 col-lg-3 col-form-label text-right">name="a_thing" #2</label>
+                    <div class="col-sm-8 col-lg-9">
+                        <input type="text" name="a_thing" id="thing2" class="form-control" value="456">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="jsonfile" class="col-sm-4 col-lg-3 col-form-label text-right">name="a_json_file"</label>
+                    <div class="col-sm-8 col-lg-9">
+                        <input type="file" name="a_json_file" id="jsonfile" class="form-control-file" accept=".json" />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="txtfile" class="col-sm-4 col-lg-3 col-form-label text-right">name="a_txt_file"</label>
+                    <div class="col-sm-8 col-lg-9">
+                        <input type="file" name="a_txt_file" id="txtfile" class="form-control-file" accept=".txt" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4 col-lg-3"></div>
+                    <div class="col-sm-8 col-lg-9">
+                        <button type="submit" class="btn btn-primary">Send</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <!-- Form /data-three -->
+
+        <div class="box border shadow">
+            <h2>Post <code>application/x-www-form-urlencoded</code> to <code>/data-three</code></h2>
+            <form method="post" enctype="application/x-www-form-urlencoded" action="/data-three">
+                <div class="form-group row">
+                    <label for="checkbox-3"
+                        class="col-sm-4 col-lg-3 form-check-label text-right">name="a_checkbox"</label>
+                    <div class="col-sm-8 col-lg-9">
+                        <input type="checkbox" name="a_checkbox" id="checkbox-3" value="good" class="form-check-input">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-4 col-lg-3 form-check-label text-right">name="a_radio"</label>
+                    <div class="col-sm-8 col-lg-9">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="a_radio" id="radio-123" value="123"
+                                checked>
+                            <label class="form-check-label" for="radio-123">123</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="a_radio" id="radio-456" value="456">
+                            <label class="form-check-label" for="radio-456">456</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="value" class="col-sm-4 col-lg-3 col-form-label text-right">name="a_value"</label>
+                    <div class="col-sm-8 col-lg-9">
+                        <input type="text" name="a_value" id="value" class="form-control" value="789">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="otherthing1" class="col-sm-4 col-lg-3 col-form-label text-right">name="other_thing"
+                        #1</label>
+                    <div class="col-sm-8 col-lg-9">
+                        <input type="text" name="other_thing" id="otherthing1" class="form-control" value="ghi">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="otherthing2" class="col-sm-4 col-lg-3 col-form-label text-right">name="other_thing"
+                        #2</label>
+                    <div class="col-sm-8 col-lg-9">
+                        <input type="text" name="other_thing" id="otherthing2" class="form-control" value="jkl">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4 col-lg-3"></div>
+                    <div class="col-sm-8 col-lg-9">
+                        <button type="submit" class="btn btn-primary">Send</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+    <!-- 
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script> 
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    -->
+</body>
+
+</html>
